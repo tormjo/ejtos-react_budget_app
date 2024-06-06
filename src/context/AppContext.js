@@ -16,7 +16,7 @@ export const AppReducer = (state, action) => {
             if(total_budget <= state.budget) {
                 total_budget = 0;
                 state.expenses.map((currentExp)=> {
-                    if(currentExp.name === action.payload.name) {
+                    if(currentExp.id === action.payload.name) {
                         currentExp.cost = action.payload.cost + currentExp.cost;
                     }
                     return currentExp
@@ -83,7 +83,7 @@ const initialState = {
         { id: "Marketing", name: 'Marketing', cost: 50 },
         { id: "Finance", name: 'Finance', cost: 300 },
         { id: "Sales", name: 'Sales', cost: 70 },
-        { id: "Human Resource", name: 'Human Resource', cost: 40 },
+        { id: "HR", name: 'Human Resource', cost: 40 },
         { id: "IT", name: 'IT', cost: 500 },
     ],
     currency: '£'
@@ -98,12 +98,14 @@ export const AppProvider = (props) => {
     // 4. Sets up the app state. takes a reducer, and an initial state
     const [state, dispatch] = useReducer(AppReducer, initialState);
     let remaining = 0;
+    let totExp = 0;
 
     if (state.expenses) {
             const totalExpenses = state.expenses.reduce((total, item) => {
             return (total = total + item.cost);
         }, 0);
         remaining = state.budget - totalExpenses;
+        totExp = totalExpenses;
     }
 
     return (
@@ -112,6 +114,7 @@ export const AppProvider = (props) => {
                 expenses: state.expenses,
                 budget: state.budget,
                 remaining: remaining,
+                totExp: totExp,
                 dispatch,
                 currency: state.currency
             }}
