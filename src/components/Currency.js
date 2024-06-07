@@ -1,7 +1,7 @@
 import React, { useContext, useState } from 'react';
 import { AppContext } from '../context/AppContext';
 
-const Currency = (props= => {
+const Currency = () => {
   const{dispatch, currency}= useContext(AppContext);
 
   const {currency, setCurrency} = useState(currency);
@@ -16,10 +16,7 @@ const Currency = (props= => {
 
 </div>
     );
-}
 
-                  
-    );
 };
 
 export default Currency;
