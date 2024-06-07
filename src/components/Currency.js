@@ -10,7 +10,7 @@ const Currency = (props= => {
 <div className='alert alert-secondary'>
     <select className="custom-select" id="inputGroupSelect01" onChange={(event) => setAction(event.target.value)}>
                   <option defaultValue value="£" name="GBP">£</option>
-                  <option value="$" name="USD">$option>
+                  <option value="$" name="USD">$</option>
                   </select>
 
 
@@ -18,14 +18,8 @@ const Currency = (props= => {
     );
 }
 
-
-                  <select className="custom-select" id="inputGroupSelect02" onChange={(event) => setAction(event.target.value)}>
-                        <option defaultValue value="Add" name="Add">Add</option>
-                <option value="Reduce" name="Reduce">Reduce</option>
-                  </select>
-
                   
     );
 };
 
-export default AllocationForm;
+export default Currency;
