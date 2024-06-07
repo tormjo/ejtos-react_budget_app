@@ -8,7 +8,11 @@ const Currency = (props= => {
 
   return (
 <div className='alert alert-secondary'>
-<span>Budget: {currency} {<input type="number" step="10" value={newBudget} onChange={handleBudgetChange}></input>}</span>
+    <select className="custom-select" id="inputGroupSelect01" onChange={(event) => setAction(event.target.value)}>
+                  <option defaultValue value="£" name="GBP">£</option>
+                  <option value="$" name="USD">$option>
+                  </select>
+
 
 </div>
     );
