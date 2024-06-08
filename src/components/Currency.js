@@ -2,11 +2,11 @@ import React, { useContext, useState } from 'react';
 import { AppContext } from '../context/AppContext';
 
 const Currency = () => {
-  const{dispatch, currency}= useContext(AppContext);
+  const{dispatch}= useContext(AppContext);
 
-  const {setNewCurrency} = useState(currency);
+  
   const handleCurrencyChange = (event) => {
-    setNewCurrency(event.target.value)
+    console.log(event.target.value)    
     dispatch({
         type: 'CHG_CURRENCY',
         payload: event.target.value,
@@ -15,10 +15,12 @@ const Currency = () => {
 
   return (
     <div className='alert alert-secondary'>
-        <select className="custom-select" id="inputGroupSelect01" onChange={handleCurrencyChange}>
+        <span>Currency: <select className="custom-select" id="inputGroupSelect01"  onChange={handleCurrencyChange}>
                     <option defaultValue value="£" name="GBP">£ Pound</option>
                     <option value="$" name="USD">$ Dollar</option>
-                    </select>
+                    <option value="€" name="EUR">€ Euro</option>
+                    <option value="₹" name="INR">₹ Rupee</option>
+                    </select></span>
 
 
     </div>
