@@ -14,7 +14,7 @@ const Currency = () => {
   } 
 
   return (
-    <div className='alert alert-secondary'>
+    <div className='alert alert-info'>
         <span>Currency: <select className="custom-select" id="inputGroupSelect01"  onChange={handleCurrencyChange}>
                     <option defaultValue value="£" name="GBP">£ Pound</option>
                     <option value="$" name="USD">$ Dollar</option>
